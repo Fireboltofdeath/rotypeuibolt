@@ -14,3 +14,8 @@ export type If<Cond, Value, Else = undefined> = { _if: [Cond, Value, Else] };
  * Compares the `Lhs` to the `Rhs` and returns a boolean.
  */
 export type Eq<Lhs, Rhs> = { _eq: [Lhs, Rhs] };
+
+/**
+ * Generates a UI based on the inputted prompt, requires OpenAI setup.
+ */
+export type Ai<P extends string> = { _ai: P };

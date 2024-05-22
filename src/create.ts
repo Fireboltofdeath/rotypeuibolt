@@ -1,3 +1,4 @@
+import { createAiComponent } from "./ai/component";
 import { Component } from "./component";
 import { FieldVariableData, InstanceData } from "./metadata";
 
@@ -70,6 +71,16 @@ function computeFieldValue(
 			computeFieldValue(state, field[1], instanceCache, dependencies) ===
 			computeFieldValue(state, field[2], instanceCache, dependencies)
 		);
+	} else if (kind === "ai") {
+		const cached = instanceCache.get(field);
+		if (cached) {
+			return cached;
+		}
+
+		const component = createAiComponent(create, field[1]);
+		instanceCache.set(field, component);
+
+		return component;
 	}
 }
 

@@ -1,10 +1,11 @@
 import { Modding } from "@flamework/core";
+import { setupServerAi } from "./ai";
 import { Component } from "./component";
 import { create } from "./create";
 import { InstanceData, InstanceMetadata } from "./metadata";
 import { New } from "./metadata/constructors";
 import { UiInstance } from "./metadata/instances";
-import { Eq, If, Var } from "./metadata/state";
+import { Ai, Eq, If, Var } from "./metadata/state";
 import { InferVariableState } from "./metadata/variables";
 
 /**
@@ -23,4 +24,4 @@ export function component<T extends UiInstance>(
 	return create(state, meta as InstanceData) as Component<T>;
 }
 
-export { Component, Eq, If, New, Var };
+export { Ai, Component, Eq, If, New, Var, setupServerAi };

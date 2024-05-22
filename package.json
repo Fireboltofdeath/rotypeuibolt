@@ -43,5 +43,8 @@
 		"rbxts-transformer-flamework": "^1.1.1",
 		"roblox-ts": "^2.3.0",
 		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"@rbxts/services": "^1.5.4"
 	}
 }
