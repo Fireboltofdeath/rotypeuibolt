@@ -13,7 +13,8 @@ export type FieldVariableData =
 	| ["string", string]
 	| ["boolean", boolean]
 	| ["undefined"]
-	| ["instance", [keyof CreatableInstances, Record<string, FieldVariableData>]];
+	| ["instance", InstanceData]
+	| ["ai", string];
 
 export type FieldData = ["signal", FieldVariableData] | ["field", FieldVariableData] | ["component", FieldVariableData];
 
@@ -27,6 +28,8 @@ type FieldVariableMetadata<T> = [T] extends [{ _datatype: [infer K, unknown, ...
 	? ["if", FieldVariableMetadata<V>, FieldVariableMetadata<T>, FieldVariableMetadata<F>]
 	: [T] extends [{ _eq: [infer Lhs, infer Rhs] }]
 	? ["eq", FieldVariableMetadata<Lhs>, FieldVariableMetadata<Rhs>]
+	: [T] extends [{ _ai: infer P }]
+	? ["ai", P]
 	: [T] extends [number]
 	? ["number", T]
 	: [T] extends [string]
