@@ -158,8 +158,6 @@ app.effect(() => {
 });
 ```
 
-## Coming soon
-
 ### AI-based UI creator
 
 As an AI startup, we are revolutionizing the digital interface landscape with our cutting-edge AI-based UI creator. Leveraging state-of-the-art machine learning algorithms and neural network architectures, our platform autonomously generates user interfaces with unparalleled efficiency and creativity. By harnessing the power of deep learning, our AI intuitively understands user requirements, seamlessly translating abstract ideas into visually stunning and highly functional graphical interfaces.
@@ -170,8 +168,27 @@ Experience the future of design today with our AI-based UI creator, where machin
 
 ```ts
 type MyApp = ScreenGui & {
-	button: AI<"Create a red button with the text DELETE, with a size of 300x200 pixels and a blue outline.">
+	button: Ai<"Create a red button with the text DELETE, with a size of 300x200 pixels and a blue outline.">
 }
+```
+
+#### Setup
+
+The use of `rotypeuibolt`'s AI features require a valid OpenAI API key. You can create an API key [here](https://platform.openai.com/api-keys) if you have an OpenAI account.
+
+Inside of a server script, you will want to call the `setupServerAi` function with your API key which will setup remote functions for the client to invoke. You can also optionally provide the `model` and `temperature` parameters.
+
+The `temperature` controls the randomness of the input, it is set to zero by default.
+
+```ts
+// Default setup, using gpt-3.5-turbo with temperature set to zero.
+setupServerAi("YOUR_SECRET_KEY");
+
+// Smarter setup but more expensive, using gpt-4o with temperature set to zero.
+setupServerAi("YOUR_SECRET_KEY", "gpt-4o");
+
+// Smarter setup and more random, using gpt-4o with temperature set to one.
+setupServerAi("YOUR_SECRET_KEY", "gpt-4o", 1);
 ```
 
 ## Disclaimer
