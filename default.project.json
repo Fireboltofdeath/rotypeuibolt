@@ -1,5 +1,5 @@
 {
-	"name": "flamework-binary-serializer",
+	"name": "rotypeuibolt",
 	"globIgnorePaths": [
 		"**/package.json",
 		"**/tsconfig.json"
